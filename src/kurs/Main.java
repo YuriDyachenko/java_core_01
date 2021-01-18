@@ -52,13 +52,15 @@ public class Main {
 
         //8. Написать метод, который определяет, является ли год високосным, и выводит сообщение в консоль.
         //Каждый 4-й год является високосным, кроме каждого 100-го, при этом каждый 400-й – високосный
+        //2021.01.18
+        //переделано на вызов другого, более простого метода
         System.out.println("8. 1890 - 1905");
         for (int i = 1890; i <= 1905; i++) {
-            outIsLeapYear(i);
+            outIsLeapYearSimple(i);
         }
         System.out.println("8. 1990 - 2021");
         for (int i = 1990; i <= 2021; i++) {
-            outIsLeapYear(i);
+            outIsLeapYearSimple(i);
         }
     }
 
@@ -114,6 +116,13 @@ public class Main {
             if ((year % 4 == 0) && (year % 100 != 0)) isLeap = true;
         String res = "year " + year;
         if (isLeap) System.out.println(res + " is leap");
+        else System.out.println(res);
+    }
+    //2021.01.18
+    //вариант с одним условием
+    public static void outIsLeapYearSimple(int year) {
+        String res = "year " + year;
+        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) System.out.println(res + " is leap");
         else System.out.println(res);
     }
 }
